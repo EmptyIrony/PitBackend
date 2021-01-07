@@ -12,8 +12,12 @@ import org.mongojack.JacksonMongoCollection;
  */
 @Getter
 public class MongoDB {
+    @Getter
+    private static MongoDB instance;
+
     private final MongoClient client;
     private final MongoDatabase database;
+    private JacksonMongoCollection<PlayerMail> playerMailCollection;
 
     public MongoDB() {
         this.client = new MongoClient();

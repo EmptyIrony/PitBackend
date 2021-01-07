@@ -1,6 +1,8 @@
 package me.cunzai.pit;
 
+import me.cunzai.pit.database.MongoDB;
 import me.cunzai.pit.handler.MessageHandler;
+import me.cunzai.pit.packet.PacketProcess;
 import org.jboss.netty.bootstrap.ServerBootstrap;
 import org.jboss.netty.channel.ChannelPipeline;
 import org.jboss.netty.channel.ChannelPipelineFactory;
@@ -20,6 +22,9 @@ import java.util.concurrent.Executors;
 public class PitBackend {
 
     public static void main(String[] args) {
+        new MongoDB();
+        new PacketProcess()
+                .init();
 
         //服务类
         ServerBootstrap bootstrap = new ServerBootstrap();
