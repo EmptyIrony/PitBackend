@@ -18,13 +18,13 @@ import java.util.UUID;
  */
 @Data
 @ClientSide
-public class PacketSendMail implements IPacket {
+public class C04PacketSendMail implements IPacket {
     private MailData data;
     private List<UUID> receives;
 
     @Override
     public int getPacketId() {
-        return 0;
+        return 4;
     }
 
     @Override
@@ -37,6 +37,7 @@ public class PacketSendMail implements IPacket {
         }
 
         json.add("receives", array);
+        json.addProperty("id", 4);
 
         return json.toString();
     }
